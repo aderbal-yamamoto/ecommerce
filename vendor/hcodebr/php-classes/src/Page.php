@@ -9,7 +9,8 @@ use Rain\tpl;
 		private $tpl;
 		private $options = [];
 		private $defaults = [
-
+			"header"=>true,
+			"footer"=>true,
 			"data"=>[]
 
 		];
@@ -31,7 +32,7 @@ use Rain\tpl;
 
 			$this->setData($this->options["data"]);
 
-			$this->tpl->draw("header");
+			if ($this->options["header"] === true) $this->tpl->draw("header");
 
 
 		}
@@ -58,7 +59,7 @@ use Rain\tpl;
 
 		public function __destruct(){
 
-			$this->tpl->draw("footer");
+			if($this->options["footer"] === true)$this->tpl->draw("footer");
 
 
 		}
