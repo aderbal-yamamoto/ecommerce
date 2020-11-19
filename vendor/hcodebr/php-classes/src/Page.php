@@ -38,24 +38,23 @@ use Rain\tpl;
 		}
 
 
-			private function setData($data = array()){
+	private function setData($data = array())
+	{
 
-				foreach ($data as $key => $value) {
-					
-				$this->tpl->assign($key, $value);
+		foreach ($data as $key => $value) {
+			$this->tpl->assign($key, $value);
+		}
 
-				}
+	}
 
-			}
+	public function setTpl($name, $data = array(), $returnHTML = false)
+	{
 
-			public function setTpl($name, $data = array(), $returnHTML = false)
-			{
+		$this->setData($data);
 
-				$this->setData($data);
+		return $this->tpl->draw($name, $returnHTML);
 
-				return $this->tpl->draw($name, $returnHTML);
-
-			}
+	}
 
 		public function __destruct(){
 
