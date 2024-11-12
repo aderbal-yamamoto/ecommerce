@@ -9,7 +9,7 @@ class User extends Model {
 	const SESSION = "User";
 	public static function login($login, $password)
 	{
-
+		
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :LOGIN", array(
@@ -23,7 +23,7 @@ class User extends Model {
 		}
 
 		$data = $results[0];
-
+		
 		if(password_verify($password, $data["despassword"]) === true)
 		{
 			$user = new User();
@@ -53,7 +53,7 @@ class User extends Model {
 			(bool)$_SESSION[User::SESSION]["inadmin"] !== $inadmin
 
 		) {
-			header("Location: /admin/login ");
+			header("Location: /ecommerce/admin/login ");
 			exit;
 		}
 

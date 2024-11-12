@@ -15,14 +15,15 @@ use Rain\tpl;
 
 		];
 
-		public function __construct($opts = array(), $tpl_dir = "/views/"){
-
+		public function __construct($opts = array(), $tpl_dir = "/ecommerce/views/"){
+			
 
 			$this->options = array_merge($this->defaults, $opts);
-				
+			//var_dump($_SERVER['DOCUMENT_ROOT'].'/ecommerce/views-cache/');
+			//exit;
 			$config = array(
 				"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"].$tpl_dir,
-				"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
+				"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/ecommerce/views-cache/",
 				"debug"         => false
 			);
 

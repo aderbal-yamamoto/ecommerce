@@ -42,10 +42,10 @@ $app->get('/admin/login', function(){
 });
 
 $app->post('/admin/login', function(){
-
+	
 	User::login($_POST["login"], $_POST["password"]);
 
-	header("Location: /admin");
+	header("Location: /ecommerce/admin");
 	exit;
 
 });
@@ -53,7 +53,7 @@ $app->post('/admin/login', function(){
 $app->get('/admin/logout', function(){
 
 	User::logout();
-	header("Location: /admin/login");
+	header("Location: /ecommerce/admin/login");
 	exit;
 }); 
 
@@ -88,7 +88,7 @@ $app->get("/admin/users/:iduser/delete", function($iduser){
 
 	$user->delete();
 
-	header("Location: /admin/users");
+	header("Location: /ecommerce/admin/users");
 
 	exit;
 	
@@ -128,7 +128,7 @@ $app->post("/admin/users/create", function(){
 
 	$user->save();
 
-	header("Location: /admin/users");
+	header("Location: /ecommerce/admin/users");
 
 	exit;
 
@@ -150,7 +150,7 @@ $app->post("/admin/users/:iduser", function($iduser){
 
 	$user->update();
 
-	header("Location: /admin/users");
+	header("Location: /ecommerce/admin/users");
 
 	exit;
 
